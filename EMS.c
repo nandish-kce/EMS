@@ -64,12 +64,8 @@ int main() {
 			printf("\n\n\t\t\t5. Search Record");
 			printf("\n\n\t\t\t6. Display Basic Info");
 			printf("\n\n\t\t\t7. Display Basic Contact Info");
-			printf("\n\n\t\t\t8. List of Male Employee");
-			printf("\n\n\t\t\t9. List of Female Employee");
-			printf("\n\n\t\t\t10. List of Employee From Dhaka");
-			printf("\n\n\t\t\t11. List of Employee From Others District");
-			printf("\n\n\t\t\t12. List of Employee of Main Branch");
-			printf("\n\n\t\t\t13. List of Employee of Others Branch");
+			printf("\n\n\t\t\t8. List of Employee of Main Branch");
+			printf("\n\n\t\t\t9. List of Employee of Others Branch");
 			printf("\n\n\t\t\t0. EXIT");
 
 			printf("\n\n\t\tEnter Your Option :--> ");
@@ -100,21 +96,9 @@ int main() {
 					basiccontact(fp);
 					break;
 				case 8:
-					maleemp(fp);
-					break;
-				case 9:
-					femaleemp(fp);
-					break;
-				case 10:
-					frmbang(fp);
-					break;
-				case 11:
-					frmors(fp);
-					break;
-				case 12:
 					mainbr(fp);
 					break;
-				case 13:
+				case 9:
 					otherbr(fp);
 					break;
 				default:
@@ -431,104 +415,6 @@ void searchRecord(FILE *fp) {
 		fflush(stdin);
 		another=getchar();
 	}
-}
-
-void maleemp(FILE * fp) {
-	printHead();
-	printf("\n\t\t\t\List of Male Employee");
-	Employee e;
-	int i,siz=sizeof(e);
-
-	rewind(fp);
-
-	while((fread(&e,siz,1,fp))==1) {
-		if((strcmp(e.gender,"Male")==0)||(strcmp(e.gender,"male")==0)) {
-
-			printf("\n\n\t\tID : %d",e.id);
-			printf("\n\n\t\tNAME : %s",e.name);
-			printf("\n\n\t\tDESIGNATION : %s",e.desgn);
-			printf("\n\n\t\tPHONE : %s",e.phone);
-			printChar('-',65);
-		}
-	}
-	printf("\n\n\n\t");
-	printChar('*',65);
-	printf("\n\n\t");
-	system("pause");
-}
-
-
-
-void femaleemp(FILE * fp) {
-	printHead();
-	printf("\n\t\t\t\List of Female Employee");
-	Employee e;
-	int i,siz=sizeof(e);
-
-	rewind(fp);
-
-	while((fread(&e,siz,1,fp))==1) {
-		if((strcmp(e.gender,"Female")==0)||(strcmp(e.gender,"female")==0)) {
-			printf("\n\n\t\tID : %d",e.id);
-			printf("\n\n\t\tNAME : %s",e.name);
-			printf("\n\n\t\tDESIGNATION : %s",e.desgn);
-			printf("\n\n\t\tPHONE : %s",e.phone);
-			printChar('-',65);
-		}
-	}
-	printf("\n\n\n\t");
-	printChar('*',65);
-	printf("\n\n\t");
-	system("pause");
-}
-
-//========================LIST OF EMPLOYEE FROM Bangalore====
-
-void frmbang(FILE * fp) {
-	printHead();
-	printf("\n\t\t\t\List of Employee From bangalore");
-	Employee e;
-	int i,siz=sizeof(e);
-
-	rewind(fp);
-
-	while((fread(&e,siz,1,fp))==1) {
-		if((strstr(e.prtaddr,"Dhaka")==0)||(strstr(e.prtaddr,"bangalore")==0)||(strstr(e.prtaddr,"BANGALORE")==0)) {
-			printf("\n\n\t\tID : %d",e.id);
-			printf("\n\n\t\tNAME : %s",e.name);
-			printf("\n\n\t\tDESIGNATION : %s",e.desgn);
-			printf("\n\n\t\tPHONE : %s",e.phone);
-			printf("\n\n\t\tE-MAIL : %s",e.mail);
-			printChar('=',65);
-		}
-	}
-	printf("\n\n\n\t");
-	printf("\n\n\t");
-	system("pause");
-}
-
-
-void frmors(FILE * fp) {
-	printHead();
-	printf("\n\t\t\t\List of Employee From Others District");
-	Employee e;
-	int i,siz=sizeof(e);
-
-	rewind(fp);
-
-	while((fread(&e,siz,1,fp))==1) {
-		if((strstr(e.prtaddr,"bangalore")==1)&&(strstr(e.prtaddr,"bangalore")==1)&&(strstr(e.prtaddr,"BANGALORE")==1)) {
-			printf("\n\n\t\tID : %d",e.id);
-			printf("\n\n\t\tNAME : %s",e.name);
-			printf("\n\n\t\tDESIGNATION : %s",e.desgn);
-			printf("\n\n\t\tPHONE : %s",e.phone);
-			printf("\n\n\t\tE-MAIL : %s",e.mail);
-			printChar('=',65);
-		}
-	}
-	printf("\n\n\n\t");
-	printf("\n\n\t");
-	system("pause");
 }
 
 
